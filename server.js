@@ -8,6 +8,9 @@ const app = express();
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASS;
 
+console.log(dbUser);
+console.log(dbPassword);
+
 app.use('/', UserController);
 
 mongoose.
@@ -19,5 +22,3 @@ connect(
     console.log('Conectou ao banco!');
 })
 .catch((err)=>console.log(err));
-
-

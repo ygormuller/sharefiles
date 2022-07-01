@@ -1,17 +1,8 @@
-require('dotenv').config();
-const express = require('express');
-const UserController = require('./src/controllers/UserController');
+const app = require('./src/app');
 const mongoose = require('mongoose');
-
-const app = express();
 
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASS;
-
-console.log(dbUser);
-console.log(dbPassword);
-
-app.use('/', UserController);
 
 mongoose.
 connect(

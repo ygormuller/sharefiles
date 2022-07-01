@@ -1,13 +1,3 @@
-require('dotenv').config();
-const express = require('express');
-const router = express.Router();
-const multer = require('multer');
-const lodash = require('lodash');
-
-const app = express();
-
-app.use(express.json());
-app.use(router);
 
 const totalStorage = 1048576;
 const actualStorage = [];

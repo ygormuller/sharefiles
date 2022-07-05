@@ -6,7 +6,7 @@ const User = require('./models/User');
 // const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const multer = require('multer');
+
 //const lodash = require('lodash');
 //const jsonParser = bodyParser.json();
 
@@ -18,11 +18,6 @@ app.use(express.json());
 app.use('/', index);
 app.use(router);
 app.use('/routes', routes);
-//app.use(bodyParser);
-//app.use(bcrypt);
-//app.use(jwt);
-app.use(multer);
-// app.use(lodash);
-// app.use(jsonParser);
+
 
 module.exports = app;

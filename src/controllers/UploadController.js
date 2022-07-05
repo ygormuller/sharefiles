@@ -1,3 +1,4 @@
+const multer = require('multer');
 
 const totalStorage = 1048576;
 const actualStorage = [];
@@ -57,22 +58,20 @@ const uploadMiddleware = (req, res) => {
 };
 
 
-router.get("/upload/:filename", (req, res) => {
+exports.filename = (req, res) => {
     const filename = req.params.filename;
     const upload = `${__dirname}/uploads/${filename}`;
     res.download(upload);
-});
+};
 
-router.post("/upload", uploadMiddleware,(req,res) => {
+exports.upload = uploadMiddleware,(req,res) => {
     res.send({ message:"Arquivo recebido"});
-});
+};
 
-router.get("/actualStorageFree",(req,res) => {
+exports.actualStorageFree = (req,res) => {
     res.send(`Espaço livre de ${actualStorageFree}kb`);
-});
+};
 
-router.get("/totalFiles",(req,res) => {
+exports.totalFiles = (req,res) => {
     res.send(totalFiles === 1 ? totalFiles + " arquivo" : totalFiles + " arquivos");
-});
-
-module.exports = router;
+};

@@ -1,4 +1,6 @@
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 function checkToken(req, res, next) {
     const authHeader = req.headers['authorization'];
@@ -115,7 +117,7 @@ exports.login = async (req, res) => {
 
         res.status(200).json({ msg: 'Autenticação realizada', token })
     } catch (err) {
-        console.log(error)
+        console.log(err)
 
         res.status(500).json({
             msg: 'Tente mais tarde!'

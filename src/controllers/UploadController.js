@@ -1,4 +1,5 @@
 const multer = require('multer');
+const lodash = require('lodash');
 
 const totalStorage = 1048576;
 const actualStorage = [];

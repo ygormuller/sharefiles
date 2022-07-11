@@ -1,5 +1,7 @@
 const User = require('../models/User');
-const checkToken = require('../middlewares/auth')
+const checkToken = require('../middlewares/auth');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 exports.public = (req,res) => {
     res.status(200).json({ msg: 'Bem vindo a API'})
@@ -95,7 +97,7 @@ exports.login = async (req, res) => {
 
         res.status(200).json({ msg: 'Autenticação realizada', token })
     } catch (err) {
-        console.log(error)
+        console.log(err)
 
         res.status(500).json({
             msg: 'Tente mais tarde!'

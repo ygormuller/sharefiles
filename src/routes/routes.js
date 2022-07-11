@@ -7,9 +7,9 @@ const upload_controller = require('../controllers/UploadController');
 const auth_middleware = require('../middlewares/auth');
 
 router.get('/public', user_controller.public);
-router.get('/:id', user_controller.id);
+router.get('/:id', (auth_middleware), user_controller.id);
 router.post('/register', user_controller.register);
-router.post('/login',(auth_middleware), user_controller.login);
+router.post('/login', user_controller.login);
 
 router.get('/:filename', upload_controller.filename);
 router.get('/actualStorageFree', upload_controller.actualStorageFree);

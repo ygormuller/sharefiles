@@ -4,10 +4,7 @@ const app = express();
 const router = express.Router();
 const User = require('./models/User');
 // const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
-//const lodash = require('lodash');
 //const jsonParser = bodyParser.json();
 
 //ROTAS

@@ -1,4 +1,5 @@
 const multer = require('multer');
+const lodash = require('lodash');
 
 const totalStorage = 1048576;
 const actualStorage = [];
@@ -31,7 +32,10 @@ const uploadMiddleware = (req, res) => {
       
       actualStorage.push(size);
   
-      sum = lodash.sum(actualStorage);;
+      sum = lodash.sum(actualStorage);
+      actualStorageFree = totalStorage - sum;
+      console.log(sum);
+      console.log(actualStorageFree);
 
       if(totalFiles !== 0) {
         if(sum  > actualStorageFree){
@@ -48,6 +52,8 @@ const uploadMiddleware = (req, res) => {
        
       totalFiles++;
       totalFilesUser++;
+
+      console.log(totalFiles);
 
       res.status(200).send({
           file: file.originalname,
@@ -69,6 +75,7 @@ exports.upload = uploadMiddleware,(req,res) => {
 };
 
 exports.actualStorageFree = (req,res) => {
+    console.log(actualStorageFree);
     res.send(`Espaço livre de ${actualStorageFree}kb`);
 };
 
